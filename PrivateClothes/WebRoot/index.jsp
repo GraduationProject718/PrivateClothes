@@ -28,12 +28,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="header">
      <div class="top">
       <h1 class="logo">
-      <a href="index.html"><img src="images/logonew11.jpg" class="logo1" />
-       <img src="images/logo.png" class="logo2" />
-      </a>
+      	<a href="index.html"><img src="images/clothes.png" style="width:400px;margin-top:2px;"/></a>
       </h1>
       <div class="phone">
-       	登录注册
+       	<a href="login.jsp">登录</a>
       </div><!--phone/-->
      </div><!--top/-->
     </div>

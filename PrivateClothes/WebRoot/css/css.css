@@ -183,13 +183,11 @@ body{background:url(../images/1280.jpg) left top;}
 /*此样式在窗口小于640的时候生效*/
 @media screen and (max-width: 620px) {
 .logo{height:50px;}
-.logo img{height:50px; width:auto !important;}
+.logo img{height:50px; width:auto }
 
 .footer{ position:static;margin-top:20px;line-height:25px;}
 .kefu{ position:fixed;width:60%;}
-.logo2{ display:block;}
-.logo1{ display:none;}
-}	
+}
 /*此样式在窗口小于480的时候生效*/
 @media screen and (max-width: 480px) {
 .phone{width:145px; font-size:.8em;}	
