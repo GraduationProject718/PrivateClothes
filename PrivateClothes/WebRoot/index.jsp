@@ -121,9 +121,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <span class="contactClick" title="点击隐藏">联<br />系<br />我<br />们</span>
      </div><!--kefuBOx/-->
     </div><!--kefu/-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
     <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/js.js"></script>
     

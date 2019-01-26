@@ -1,6 +1,8 @@
 package action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +21,19 @@ public class UserServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		String op = request.getParameter("op");
+		
+		if("register".equals(op)){
+			String account = request.getParameter("account");
+			String password = request.getParameter("password");
+			String confirmPassword = request.getParameter("confirmPassword");
+			System.out.println(account+password+confirmPassword);
+		}
+		
 	}
 
 }
