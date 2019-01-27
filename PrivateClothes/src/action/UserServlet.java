@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.User;
+
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,10 +30,16 @@ public class UserServlet extends HttpServlet {
 		String op = request.getParameter("op");
 		
 		if("register".equals(op)){
+			User user = new User();
 			String account = request.getParameter("account");
 			String password = request.getParameter("password");
 			String confirmPassword = request.getParameter("confirmPassword");
-			System.out.println(account+password+confirmPassword);
+			if(password.equals(confirmPassword)){
+				user.setAccount(account);
+				user.setPassword(password);
+			}else{
+				out.print("您两次输入的密码有误！");
+			}
 		}
 		
 	}

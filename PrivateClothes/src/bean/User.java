@@ -16,6 +16,7 @@ public class User implements Serializable {
 	private String birthday;
 	private String address;
 	private String phone;
+	private String img;
 	public int getId() {
 		return id;
 	}
@@ -69,6 +70,12 @@ public class User implements Serializable {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 }
