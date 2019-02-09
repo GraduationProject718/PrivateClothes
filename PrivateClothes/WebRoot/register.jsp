@@ -23,14 +23,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <script type="text/javascript">
     	function check(){
-    		var password = $("#password").val().trim();
-    		var confirmPassword = $("#confirmPassword").val().trim();
-    		if( password == confirmPassword){
-    			return true;
-    		}else{
-    			alert("您两次输入的密码不一致，请重新输入！");
-    			return false;
-    		}
+    		var password = $("#password").val();
+	    		var confirmPassword = $("#confirmPassword").val();
+	    		if( password == confirmPassword){
+	    			return true;
+	    		}else{
+	    			alert("您两次输入的密码不一致，请重新输入！");
+	    			return false;
+	    		}
     	}
     </script>
   </head>
@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">注册</button>
+				<button type="submit"  class="btn btn-default">注册</button>
 			</div>
 		</div>
 	</form>

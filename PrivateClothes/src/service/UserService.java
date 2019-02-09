@@ -1,5 +1,9 @@
 package service;
 
+import java.util.ArrayList;
+
+import javax.servlet.jsp.jstl.sql.Result;
+
 import bean.User;
 import dao.Dao;
 
@@ -12,5 +16,27 @@ public class UserService {
 			return true;
 		}
 		return false;
+	}
+	public ArrayList<User> getAll() {
+		ArrayList<User> user = new ArrayList<User>();
+		String sql = "select * from user";
+		Result result = dao.getList(sql);
+		Object[][] data = result.getRowsByIndex();
+		for(int i=0; i<data.length; i++){
+			User u = new User();
+			u.setId(Integer.valueOf(data[i][0].toString()));
+			u.setAccount(data[i][1].toString());
+			u.setPassword(data[i][2].toString());
+			u.setName(data[i][3].toString());
+			u.setInfo(data[i][4].toString());
+			u.setGender(data[i][5].toString());
+			u.setBirthday(data[i][6].toString());
+			u.setAddress(data[i][7].toString());
+			u.setPhone(data[i][8].toString());
+			u.setImgName(data[i][9].toString());
+			u.setImgUrl(data[i][10].toString());
+			user.add(u);
+		}
+		return user;
 	}
 }

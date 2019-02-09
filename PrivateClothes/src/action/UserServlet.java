@@ -2,6 +2,7 @@ package action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,5 +50,22 @@ public class UserServlet extends HttpServlet {
 				response.sendRedirect("../login.jsp");
 			}
 		}
+		
+		if("login".equals(op)) {
+			String account = request.getParameter("account");
+			String password = request.getParameter("password");
+			ArrayList<User> list = userService.getAll();
+			for(User u: list){ 
+				if(u.getAccount().equals(account) && u.getPassword().equals(password)){
+					request.getSession().setAttribute("user", u);
+					response.sendRedirect("../index.jsp");
+				}else{
+					out.write("<script>alert('您输入的账号或者密码有误，请重新输入！')</script>"); 
+				}
+			}
+		}
+		
+		out.flush();
+		out.close();
 	}
 }
