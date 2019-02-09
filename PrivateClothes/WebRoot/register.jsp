@@ -20,11 +20,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+    	function check(){
+    		var password = $("#password").val().trim();
+    		var confirmPassword = $("#confirmPassword").val().trim();
+    		if( password == confirmPassword){
+    			return true;
+    		}else{
+    			alert("您两次输入的密码不一致，请重新输入！");
+    			return false;
+    		}
+    	}
+    </script>
   </head>
   
   <body>
   	
-	<form class="form-horizontal" role="form" action="servlet/UserServlet?op=register" method="post">
+	<form class="form-horizontal" action="servlet/UserServlet?op=register" method="post" onsubmit="return check();">
 		<div class="form-group">
 			<label for="firstname" class="col-sm-2 control-label"><a href="index.jsp" style="color:#2fa0ec;">服装私人定制网</a></label>
 		</div>

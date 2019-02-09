@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.User;
+import service.UserService;
 
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
@@ -28,20 +29,25 @@ public class UserServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String op = request.getParameter("op");
-		
+		UserService userService = new UserService();
+		User user;
 		if("register".equals(op)){
-			User user = new User();
+			user = new User();
 			String account = request.getParameter("account");
 			String password = request.getParameter("password");
-			String confirmPassword = request.getParameter("confirmPassword");
-			if(password.equals(confirmPassword)){
-				user.setAccount(account);
-				user.setPassword(password);
-			}else{
-				out.print("您两次输入的密码有误！");
+			user.setAccount(account);
+			user.setPassword(password);
+			user.setName("");
+			user.setInfo("");
+			user.setGender("");
+			user.setBirthday("2000-01-01");
+			user.setAddress("");
+			user.setPhone("");
+			user.setImgName("");
+			user.setImgUrl("");
+			if(userService.register(user)){
+				response.sendRedirect("../login.jsp");
 			}
 		}
-		
 	}
-
 }

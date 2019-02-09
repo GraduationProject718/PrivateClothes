@@ -16,7 +16,9 @@ public class User implements Serializable {
 	private String birthday;
 	private String address;
 	private String phone;
-	private String img;
+	private String imgName;
+	private String imgUrl;
+	
 	public int getId() {
 		return id;
 	}
@@ -71,11 +73,17 @@ public class User implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getImg() {
-		return img;
+	public String getImgName() {
+		return imgName;
 	}
-	public void setImg(String img) {
-		this.img = img;
+	public void setImgName(String imgName) {
+		this.imgName = imgName;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	
 }
