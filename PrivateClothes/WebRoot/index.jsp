@@ -21,6 +21,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/css.css" rel="stylesheet">
+    
+    <style type="text/css">
+    	 .userImg{width:50px;height:50px;border-radius:50px}
+    </style>
   </head>
   
   <body>
@@ -36,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		<a href="login.jsp">登录</a> <a href="register.jsp">注册</a>
        	</c:if>
        	<c:if test="${user.name != null}">
-       		<a href="user.jsp">${user.name}</a>
+       		<a href="user.jsp"><img class="userImg" src="${user.imgUrl }"></a>
        	</c:if>
       </div><!--phone/-->
      </div><!--top/-->

@@ -44,8 +44,8 @@ public class UserServlet extends HttpServlet {
 			user.setBirthday("2000-01-01");
 			user.setAddress("");
 			user.setPhone("");
-			user.setImgName("");
-			user.setImgUrl("");
+			user.setImgName("contac.jpg");
+			user.setImgUrl("images/contac.jpg");
 			if(userService.register(user)){
 				response.sendRedirect("../login.jsp");
 			}

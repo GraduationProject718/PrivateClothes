@@ -124,9 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <p>版权所有：安源</p>
      </div><!--footer2/-->
     </div><!--content/-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/js.js"></script>
     <!--导航定位 不要包含-->
