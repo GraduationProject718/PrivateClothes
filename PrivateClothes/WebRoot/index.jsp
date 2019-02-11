@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="css/css.css" rel="stylesheet">
     
     <style type="text/css">
-    	 .userImg{width:50px;height:50px;border-radius:50px}
+    	 .userImg{width:80px;height:80px;border-radius:80px}
     </style>
   </head>
   
@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="header">
      <div class="top">
       <h1 class="logo">
-      	<a href="index.jsp"><img src="images/clothes.png" style="width:400px;margin-top:2px;"/></a>
+      	<a href="index.jsp"><img src="images/clothes.png" style="width:400px;margin-top:-15px;"/></a>
       </h1>
       <div class="phone">
       	<c:if test="${user.name == null}">
@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <a href="product.html">
         <span><img src="images/productimg.png" class="grayscale"></span>
         <strong>
-         主营产品<br />
+       	男士服装<br />
          <i>Products</i>
         </strong>
        </a>
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <a href="shopping.html">
         <span><img src="images/shopimg.png" class="grayscale"></span>
         <strong>
-         线上商城<br />
+         	女士服装<br />
          <i>Online shopping mall</i>
         </strong>
        </a>
@@ -93,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <a href="new.html">
         <span><img src="images/newimg.png" class="grayscale"></span>
         <strong>
-         在线客服<br />
+         私人定制<br />
          <i>News</i>
         </strong>
        </a>
@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <a href="contact.html">
         <span><img src="images/contactimg.png" class="grayscale"></span>
         <strong>
-        关于我们<br />
+        在线客服<br />
          <i>Contact us</i>
         </strong>
        </a>
