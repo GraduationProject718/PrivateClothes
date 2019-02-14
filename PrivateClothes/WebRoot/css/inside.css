@@ -20,7 +20,7 @@ body {
     height: 100%;   
     _height:100%;
 	font-size:1em;   
-    background:#222 url(../images/neibg.jpg) 600px bottom no-repeat;
+    background:url(../images/1600.jpg) bottom;
 	background-attachment:fixed;
 }   
 #content {   

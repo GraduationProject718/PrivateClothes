@@ -21,14 +21,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/css.css" rel="stylesheet">
-    
     <style type="text/css">
     	 .userImg{width:80px;height:80px;border-radius:80px}
     </style>
   </head>
   
   <body>
-    <div class="bg"><img src="images/bg.jpg" /></div>
     <!--header start-->
     <div class="header">
      <div class="top">
@@ -40,101 +38,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		<a href="login.jsp">登录</a> <a href="register.jsp">注册</a>
        	</c:if>
        	<c:if test="${user.name != null}">
-       		<a href="user.jsp"><img class="userImg" src="${user.imgUrl }"></a>
+       		<a target="index" href="user.jsp"><img class="userImg" src="${user.imgUrl }"></a>
        	</c:if>
       </div><!--phone/-->
      </div><!--top/-->
     </div>
     <!--headers end/-->
-    <!--mainCont start-->
-    <div class="mainCont">
-     <ul class="nav" id="nav">
-      <li class="nav-Index">
-       <a href="index.html">
-        <span><img src="images/indeximg.jpg" class="grayscale"></span>
-        <strong>
-         首页<br />
-         <i>Index</i>
-        </strong>
-       </a>
-       <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
-      </li>
-      <li class="nav-About">
-       <a href="about.html">
-        <span><img src="images/aboutimg.png" class="grayscale"></span>
-        <strong>
-         新闻资讯<br />
-         <i>About us</i>
-        </strong>
-       </a>
-       <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
-      </li>
-      <li class="nav-Products">
-       <a href="product.html">
-        <span><img src="images/productimg.png" class="grayscale"></span>
-        <strong>
-       	男士服装<br />
-         <i>Products</i>
-        </strong>
-       </a>
-       <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
-      </li>
-      <li class="nav-News">
-       <a href="shopping.html">
-        <span><img src="images/shopimg.png" class="grayscale"></span>
-        <strong>
-         	女士服装<br />
-         <i>Online shopping mall</i>
-        </strong>
-       </a>
-       <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
-      </li>
-      <li class="nav-shopping">
-       <a href="new.html">
-        <span><img src="images/newimg.png" class="grayscale"></span>
-        <strong>
-         私人定制<br />
-         <i>News</i>
-        </strong>
-       </a>
-       <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
-      </li>
-      <li class="nav-Contact">
-       <a href="contact.html">
-        <span><img src="images/contactimg.png" class="grayscale"></span>
-        <strong>
-        在线客服<br />
-         <i>Contact us</i>
-        </strong>
-       </a>
-       <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
-      </li>
-     </ul><!--nav/-->
-    </div>
-    <!--mainCont end-->
+    <iframe name="index" src="main.jsp" style="width:100%;height:83%;margin:0px;padding:0px;"></iframe>
     <!--footer start-->
     <div class="footer">
      Copyright @ 计本1501 201508110030 安源 &nbsp; 
     </div>
     <!--footer end-->
-    <!--客服代码-->
-    <span class="cc1" title="点击展开联系我们">联<br />系<br />我<br />们</span>
-    <div class="kefu">
-     <div class="kefuBOx">
-      <div class="kefunone">
-         <h3>联系我们</h3>
-         地址：上海市普陀区曹杨路<br />
-         业务咨询1：<a href="tel:021-31127521">021-31127521</a><br />
-         业务咨询2：<a href="tel:021-60521286">021-60521286</a><br />
-         <a href="http://wpa.qq.com/msgrd?v=3&uin=2445638917&site=qq&menu=yes" class="btn btn-success" target="_blank">QQ客服</a>
-      </div>   
-         <span class="contactClick" title="点击隐藏">联<br />系<br />我<br />们</span>
-     </div><!--kefuBOx/-->
-    </div><!--kefu/-->
     
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/js.js"></script>
+    
     
   </body>
 </html>
