@@ -20,23 +20,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
+    <style type="text/css">
+    	body{
+			background: url("images/bg.jpg"); 
+			font-size:2em;
+    	}
+    	.container{
+    		margin-top:100px;
+    		width:1100px;
+    	}
+    </style>
 
   </head>
   
   <body>
+  	<div class="container">
 	<form class="form-horizontal" action="servlet/UserServlet?op=login" method="post">
 		<div class="form-group">
 			<label for="firstname" class="col-sm-2 control-label"><a href="index.jsp" style="color:#2fa0ec;">服装私人定制网</a></label>
 		</div>
 		<div class="form-group">
 			<label for="firstname" class="col-sm-2 control-label">邮箱</label>
-			<div class="col-sm-10">
+			<div class="col-sm-6">
 				<input type="text" class="form-control" id="account" name="account" placeholder="请输入邮箱" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="lastname" class="col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
-			<div class="col-sm-10">
+			<div class="col-sm-6">
 				<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" />
 			</div>
 		</div>
@@ -46,5 +58,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</form>
+	</div>
   </body>
 </html>

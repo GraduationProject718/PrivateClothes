@@ -24,53 +24,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <link href="css/inside.css" rel="stylesheet">
     <link href="css/response.css" rel="stylesheet">
-    <style type="text/css">
-    	 .userImg{width:80px;height:80px;border-radius:80px}
-    </style>
-
+   
   </head>
   
   <body>
-    <!--mainCont start-->
+  <!--mainCont start-->
     <div class="mainCont">
      <ul class="nav" id="nav">
       <li class="nav-About">
-       <a href="about.html">
+       <a href="news.jsp" target="index">
         <span><img src="images/aboutimg.png" class="grayscale"></span>
-        <strong>新闻资讯<br />
-        </strong>
+        <strong>新闻资讯</strong>
        </a>
        <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
       </li>
       <li class="nav-Products">
-       <a href="product.html">
+       <a href="menClothes.jsp" target="index">
         <span><img src="images/productimg.png" class="grayscale"></span>
-        <strong>男士服装<br />
-        </strong>
+        <strong>男士服装</strong>
        </a>
        <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
       </li>
       <li class="nav-News">
-       <a href="shopping.html">
+       <a href="womenClothes.jsp" target="index">
         <span><img src="images/shopimg.png" class="grayscale"></span>
-        <strong>女士服装<br />
-        </strong>
+        <strong>女士服装</strong>
        </a>
        <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
       </li>
       <li class="nav-shopping">
-       <a href="new.html">
+       <a href="privateClothes.jsp" target="index">
         <span><img src="images/newimg.png" class="grayscale"></span>
-        <strong>私人定制<br />
-        </strong>
+        <strong>私人定制</strong>
        </a>
        <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
       </li>
       <li class="nav-Contact">
-       <a href="contact.html">
+       <a href="tencent://Message/?Uin=2323553475&websiteName=q-zone.qq.com&Menu=yes" target="_blank">
         <span><img src="images/contactimg.png" class="grayscale"></span>
-        <strong>在线客服<br />
-        </strong>
+        <strong>在线客服</strong>
        </a>
        <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
       </li>
@@ -80,5 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/js.js"></script>
+  
+    
   </body>
 </html>

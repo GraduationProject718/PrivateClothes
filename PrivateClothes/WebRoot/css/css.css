@@ -33,17 +33,22 @@ float:left;
 width:163px;
 height:82px;
 }	
-.phone{
+.login{
 	float:right;
 	width:175px;
 	height:50px;
 	line-height:50px;
-	font-size:1em;
-	color:#fff;
+	font-size:2em;
 	text-align:right;
 	white-space:nowrap;
-	}
-
+}
+.login a{
+	color:white;
+}
+.login a:hover{
+	color:blue;
+	text-decoration: none;	
+}
 /*mainCont*/	
 .mainCont{
 	width:80%;
@@ -216,9 +221,10 @@ body{background:url(../images/1366-2.jpg) left top;}
 /*此样式在高度小于590的时候生效*/
 @media screen and (max-height: 550px) {	
 .mainCont{padding-top:10%;}
-}	
-
-	
+}
+.userImg{
+	width:80px;height:80px;border-radius:80px;
+}
 	
 	
 	

@@ -21,9 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/css.css" rel="stylesheet">
-    <style type="text/css">
-    	 .userImg{width:80px;height:80px;border-radius:80px}
-    </style>
   </head>
   
   <body>
@@ -33,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <h1 class="logo">
       	<a href="index.jsp"><img src="images/clothes.png" style="width:400px;margin-top:-15px;"/></a>
       </h1>
-      <div class="phone">
+      <div class="login">
       	<c:if test="${user.name == null}">
        		<a href="login.jsp">登录</a> <a href="register.jsp">注册</a>
        	</c:if>
@@ -44,14 +41,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </div><!--top/-->
     </div>
     <!--headers end/-->
-    <iframe name="index" src="main.jsp" style="width:100%;height:83%;margin:0px;padding:0px;"></iframe>
+    
+    <iframe name="index" src="main.jsp" style="width:100%;height:83%;margin-top:-3px;padding:0px;"></iframe>
+    
     <!--footer start-->
     <div class="footer">
      Copyright @ 计本1501 201508110030 安源 &nbsp; 
     </div>
     <!--footer end-->
-    
-    
-    
   </body>
 </html>
