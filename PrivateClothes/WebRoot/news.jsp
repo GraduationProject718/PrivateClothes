@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,27 +18,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-	<link href="layui/css/layui.css" rel="stylesheet">
-	<script src="js/jquery.min.js"></script>
-	<script src="layui/layui.js"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/layui/css/layui.css">
+	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/layui/layui.all.js"></script>
 	
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	
+	<style type="text/css">
+		.layui-form-pane{
+			padding-top:20px;
+			padding-left:20px;
+		}
+		.layui-form-pane .layui-form-label{
+			background-color: #1e9fff;
+			margin-left: 20px;
+		}
+		.layui-table td, .layui-table th{
+			padding:9px;
+		}
+		.layui-table{
+			width:95%;
+			margin-left: 20px;
+		}
+		.layui-input{
+			width:200px;
+		}
+		.page{
+			margin:0 auto;
+		}
+	</style>
   </head>
   
   <body>
-	<ul class="layui-nav layui-nav-tree layui-nav-side">
-	  <li class="layui-nav-item layui-nav-itemed"><a href="news.jsp">新闻资讯</a></li>
-	  <li class="layui-nav-item"><a href="menClothes.jsp">男士服装</a></li>
-	  <li class="layui-nav-item"><a href="womenClothes.jsp">女士服装</a></li>
-	  <li class="layui-nav-item"><a href="privateClothes.jsp">私人定制</a></li>
-	  <li class="layui-nav-item"><a href="tencent://Message/?Uin=2323553475&websiteName=q-zone.qq.com&Menu=yes" target="_blank">在线客服</a></li>
-	</ul>
-	<script src="layui/layui.js"></script>
-	<script>
-	//注意：导航 依赖 element 模块，否则无法进行功能性操作
-	layui.use('element', function(){
-	  var element = layui.element;
-	});
-	</script>
-	
+	<jsp:include page="leftMenu.jsp"></jsp:include>
+	<div style="float:right;width:85%;">
+	<table class="layui-table">
+	  <colgroup>
+	  	<col width="50">
+	  	<col>
+	    <col width="100">
+	  </colgroup>
+	  <tbody>
+	    <c:forEach items="${page.list}" var="a">
+	    <tr>
+			<td><img style="width:30px;height:30px;" src="${pageContext.request.contextPath}/${a.img }"> </td>
+			<td>${a.title } </td>
+			<td>${a.date }</td>
+	    </tr>
+	    </c:forEach>
+	  </tbody>
+	</table>
+  	<jsp:include page="pageFile.jsp"></jsp:include>
+  	</div>
   </body>
 </html>

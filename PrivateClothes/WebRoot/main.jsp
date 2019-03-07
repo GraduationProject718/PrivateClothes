@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="mainCont">
      <ul class="nav" id="nav">
       <li class="nav-About">
-       <a href="news.jsp" target="index">
+       <a href="ArticleServlet?method=indexGetList&num=1" target="index">
         <span><img src="images/aboutimg.png" class="grayscale"></span>
         <strong>新闻资讯</strong>
        </a>

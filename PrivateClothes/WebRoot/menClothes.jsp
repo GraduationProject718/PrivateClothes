@@ -27,19 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<ul class="layui-nav layui-nav-tree layui-nav-side">
-	  <li class="layui-nav-item"><a href="news.jsp">新闻资讯</a></li>
-	  <li class="layui-nav-item layui-nav-itemed"><a href="menClothes.jsp">男士服装</a></li>
-	  <li class="layui-nav-item"><a href="womenClothes.jsp">女士服装</a></li>
-	  <li class="layui-nav-item"><a href="privateClothes.jsp">私人定制</a></li>
-	  <li class="layui-nav-item"><a href="tencent://Message/?Uin=2323553475&websiteName=q-zone.qq.com&Menu=yes" target="_blank">在线客服</a></li>
-	</ul>
-	<script src="layui/layui.js"></script>
-	<script>
-	//注意：导航 依赖 element 模块，否则无法进行功能性操作
-	layui.use('element', function(){
-	  var element = layui.element;
-	});
-	</script>
+	<jsp:include page="leftMenu.jsp"></jsp:include>
+	
   </body>
 </html>
