@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	
 	<link rel="stylesheet" type="text/css" href="css/home.css" />
 	<script src="js/jquery.min.js"></script>
 	<script src="js/home.js"></script>
@@ -32,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <a href="javasript:void(0);" class="_all2"><li>服装管理</li></a>
 	    <a href="javasript:void(0);" class="_all3"><li>订单管理</li></a>
 	    <a href="javasript:void(0);" class="_all4"><li>评价管理</li></a>
-	    <a href="javasript:void(0);" class="_all5"><li>新闻管理</li></a>
+	    <!-- <a href="javasript:void(0);" class="_all5"><li>新闻管理</li></a> -->
 	    <a href="javasript:void(0);" class="_all6"><li>文章管理</li></a>
 	  </ul>
 	</div>
@@ -47,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<div class="all2">
 		<h4 style="color:#fff">服装管理</h4>
-		<iframe style="border:0; background:rgba(255,255,255,0.5);" scrolling="auto" src="http://www.chepiao100.com/application/views/statics/doc/demo/yupiao.php" width="1000" height="544"></iframe>
+		<iframe style="border:0; background:rgba(255,255,255,0.5);" scrolling="auto" src="${pageContext.request.contextPath}/ClothesServlet?method=getList&num=1" width="1000" height="544"></iframe>
 	</div>
 	
 	<div class="all3">
@@ -58,9 +59,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<h4 style="color:#fff">评价管理</h4>
 	</div>
 
-	<div class="all5">
+	<!-- <div class="all5">
 		<h4 style="color:#fff">新闻管理</h4>
-	</div>
+	</div> -->
 	
 	<div class="all6">
 		<h4 style="color:#fff">文章管理</h4>

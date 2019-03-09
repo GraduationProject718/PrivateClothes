@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <filter>
     <filter-name>EncodingFilter</filter-name>
     <filter-class>filter.EncodingFilter</filter-class>
@@ -18,7 +17,6 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
   <servlet>
     <servlet-name>ArticleServlet</servlet-name>
     <servlet-class>servlet.ArticleServlet</servlet-class>
@@ -27,7 +25,6 @@
     <servlet-name>ArticleServlet</servlet-name>
     <url-pattern>/ArticleServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>BaseServlet</servlet-name>
     <servlet-class>servlet.BaseServlet</servlet-class>
@@ -36,5 +33,36 @@
     <servlet-name>BaseServlet</servlet-name>
     <url-pattern>/BaseServlet</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>ClothesServlet</servlet-name>
+    <servlet-class>servlet.ClothesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClothesServlet</servlet-name>
+    <url-pattern>/ClothesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ClothesTypeServlet</servlet-name>
+    <servlet-class>servlet.ClothesTypeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClothesTypeServlet</servlet-name>
+    <url-pattern>/ClothesTypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MaterialServlet</servlet-name>
+    <servlet-class>servlet.MaterialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MaterialServlet</servlet-name>
+    <url-pattern>/MaterialServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ClothesSizeServlet</servlet-name>
+    <servlet-class>servlet.ClothesSizeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClothesSizeServlet</servlet-name>
+    <url-pattern>/ClothesSizeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

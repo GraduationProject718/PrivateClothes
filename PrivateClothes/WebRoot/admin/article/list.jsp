@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-
+	<link rel="stylesheet" type="text/css" href="css/home.css" />
 	<style type="text/css">
 		body{
 			background: none;
@@ -81,12 +81,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	<table class="layui-table">
 	  <colgroup>
 	  	<col width="50">
+	  	<col width="50">
 	    <col>
 	    <col width="100">
 	    <col width="150">
 	  </colgroup>
 	  <thead>
 	    <tr>
+	      <th>序号</th>		
 	      <th>封面</th>
 	      <th>标题</th>
 	      <th>时间</th>
@@ -94,8 +96,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </tr> 
 	  </thead>
 	  <tbody>
-	    <c:forEach items="${page.list}" var="a">
+	    <c:forEach items="${page.list}" var="a" varStatus="status">
 	    <tr>
+	    	<td>${status.count}</td>
 			<td><img style="width:30px;height:30px;" src="${pageContext.request.contextPath}/${a.img }"> </td>
 			<td>${a.title } </td>
 			<td>${a.date }</td>
