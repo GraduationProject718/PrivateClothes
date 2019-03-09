@@ -47,7 +47,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="lastname" class="col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+			<label for="lastname" class="col-sm-2 control-label">密码</label>
+			<div class="col-sm-6">
+				<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="lastname" class="col-sm-2 control-label">验证码</label>
 			<div class="col-sm-6">
 				<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" />
 			</div>
