@@ -163,7 +163,6 @@ public class ClothesServlet extends BaseServlet {
 				}
 			}
 			BeanUtils.populate(clothes, map);
-			clothes.setId(UUIDUtils.getId());
 			clothes.setDate(new Date());
 			clothesService.editClothes(clothes);
 			response.sendRedirect("ClothesServlet?method=getList&num=1");

@@ -33,6 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <form class="layui-form addClothesFrom" action="ClothesServlet?method=editClothes" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="${clothes.id}">
   <div class="layui-form-item">
     <label class="layui-form-label">服装名</label>
     <div class="layui-input-block">
