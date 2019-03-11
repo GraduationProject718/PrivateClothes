@@ -44,6 +44,20 @@ public class ClothesServlet extends BaseServlet {
 		request.setAttribute("page", pm);
 		return "/admin/clothes/list.jsp";
 	}
+	
+	public String manClothes(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum = Integer.parseInt(request.getParameter("num"));
+		PageModel pm = clothesService.manClothes(curNum);
+		request.setAttribute("page", pm);
+		return "/clothes.jsp";
+	}
+	
+	public String womanClothes(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum = Integer.parseInt(request.getParameter("num"));
+		PageModel pm = clothesService.womanClothes(curNum);
+		request.setAttribute("page", pm);
+		return "/clothes.jsp";
+	}
 	public String delClothes(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 		clothesService.delClothes(id);

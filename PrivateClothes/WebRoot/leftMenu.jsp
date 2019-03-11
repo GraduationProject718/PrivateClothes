@@ -9,8 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 <ul class="layui-nav layui-nav-tree layui-nav-side">
 	  <li class="layui-nav-item layui-nav-itemed"><a href="ArticleServlet?method=indexGetList&num=1">新闻资讯</a></li>
-	  <li class="layui-nav-item"><a href="menClothes.jsp">男士服装</a></li>
-	  <li class="layui-nav-item"><a href="womenClothes.jsp">女士服装</a></li>
+	  <li class="layui-nav-item"><a href="ClothesServlet?method=manClothes&num=1">男士服装</a></li>
+	  <li class="layui-nav-item"><a href="ClothesServlet?method=womanClothes&num=1">女士服装</a></li>
 	  <li class="layui-nav-item"><a href="privateClothes.jsp">私人定制</a></li>
 	  <li class="layui-nav-item"><a href="tencent://Message/?Uin=2323553475&websiteName=q-zone.qq.com&Menu=yes" target="_blank">在线客服</a></li>
 	</ul>

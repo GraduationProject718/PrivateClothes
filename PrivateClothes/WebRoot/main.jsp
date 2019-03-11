@@ -39,14 +39,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
       </li>
       <li class="nav-Products">
-       <a href="menClothes.jsp" target="index">
+       <a href="ClothesServlet?method=manClothes&num=1" target="index">
         <span><img src="images/productimg.png" class="grayscale"></span>
         <strong>男士服装</strong>
        </a>
        <div class="musics"><embed src=mp3/m1_clip.mp3 autostart=true loop=true width=0 height=0></div>
       </li>
       <li class="nav-News">
-       <a href="womenClothes.jsp" target="index">
+       <a href="ClothesServlet?method=womanClothes&num=1" target="index">
         <span><img src="images/shopimg.png" class="grayscale"></span>
         <strong>女士服装</strong>
        </a>

@@ -28,5 +28,21 @@ public class ClothesService {
 	public void editClothes(Clothes clothes) throws Exception{
 		clothesDao.editClothes(clothes);
 	}
+	public PageModel manClothes(int curNum) throws Exception{
+		int totalRecords =clothesDao.findManClothesTotalRecords();
+		PageModel pm = new PageModel(curNum,totalRecords,5);
+		List<Clothes> list = clothesDao.manClothes(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("ClothesServlet?method=manClothes");
+		return pm;
+	}
+	public PageModel womanClothes(int curNum) throws Exception{
+		int totalRecords =clothesDao.findWomanClothesTotalRecords();
+		PageModel pm = new PageModel(curNum,totalRecords,5);
+		List<Clothes> list = clothesDao.womanClothes(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("ClothesServlet?method=womanClothes");
+		return pm;
+	}
 
 }

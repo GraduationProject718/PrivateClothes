@@ -52,4 +52,31 @@ public class ClothesDao {
 		qr.update(sql,params);
 	}
 
+	public int findManClothesTotalRecords() throws Exception{
+		String sql = "select count(*) from clothes where gender=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler(),"man");
+		return num.intValue();
+	}
+
+	public List<Clothes> manClothes(int startIndex, int pageSize) throws Exception {
+		String sql = "select * from clothes where gender=? order by date desc limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Clothes>(Clothes.class),"man",startIndex,pageSize);
+	}
+
+	public int findWomanClothesTotalRecords() throws Exception {
+		String sql = "select count(*) from clothes where gender=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler(),"woman");
+		return num.intValue();
+	}
+
+	public List<Clothes> womanClothes(int startIndex, int pageSize)throws Exception {
+		String sql = "select * from clothes where gender=? order by date desc limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Clothes>(Clothes.class),"woman",startIndex,pageSize);
+
+	}
+
 }
