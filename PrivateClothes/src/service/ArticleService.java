@@ -37,11 +37,14 @@ public class ArticleService {
 	}
 	public PageModel indexGetList(int curNum) throws Exception{
 		int totalRecords =articleDao.findTotalRecords();
-		PageModel pm = new PageModel(curNum,totalRecords,5);
+		PageModel pm = new PageModel(curNum,totalRecords,8);
 		List<Article> list = articleDao.getList(pm.getStartIndex(),pm.getPageSize());
 		pm.setList(list);
 		pm.setUrl("ArticleServlet?method=indexGetList");
 		return pm;
+	}
+	public List<Article> indexArticle() throws Exception{
+		return articleDao.indexArticle();
 	}
 
 }

@@ -53,6 +53,12 @@ public class ArticleDao {
 		qr.update(sql,params);
 		return true;
 	}
+
+	public List<Article> indexArticle() throws Exception{
+		String sql = "select * from article order by date desc limit 0,11";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Article>(Article.class));
+	}
 	
 
 }

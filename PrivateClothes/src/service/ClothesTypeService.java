@@ -12,5 +12,9 @@ public class ClothesTypeService {
 		return clothesTypeDao.findAllType() ;
 	}
 
+	public List<ClothesType> indexClothesType() throws Exception{
+		return clothesTypeDao.indexClothesType();
+	}
+
 	
 }

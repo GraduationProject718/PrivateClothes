@@ -17,59 +17,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/layui/css/layui.css">
-	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/layui/layui.all.js"></script>
-	
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-	
-	<style type="text/css">
-		.layui-form-pane{
-			padding-top:20px;
-			padding-left:20px;
-		}
-		.layui-form-pane .layui-form-label{
-			background-color: #1e9fff;
-			margin-left: 20px;
-		}
-		.layui-table td, .layui-table th{
-			padding:9px;
-		}
-		.layui-table{
-			width:95%;
-			margin-left: 20px;
-		}
-		.layui-input{
-			width:200px;
-		}
-		.page{
-			margin:0 auto;
-		}
-	</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script type="text/javascript" src="js/NSW_Index.js"></script>
+	<script type="text/javascript" src="js/rollup.min.js"></script>
   </head>
   
   <body>
-	<jsp:include page="leftMenu.jsp"></jsp:include>
-	<div style="float:right;width:85%;">
-	<table class="layui-table">
-	  <colgroup>
-	  	<col width="50">
-	  	<col>
-	    <col width="200">
-	  </colgroup>
-	  <tbody>
-	    <c:forEach items="${page.list}" var="a">
-	    <tr>
-			<td><img style="width:30px;height:30px;" src="${pageContext.request.contextPath}/${a.img }"> </td>
-			<td>${a.title } </td>
-			<td>${a.date }</td>
-	    </tr>
-	    </c:forEach>
-	  </tbody>
-	</table>
-  	<jsp:include page="pageFile.jsp"></jsp:include>
-  	</div>
+	<jsp:include page="head.jsp"></jsp:include>
+	<br />
+	<div class="content">
+  <div class="right">
+    <div class="plc"><span class="red_x">当前位置：</span><a href="IndexServlet">首页</a> &raquo; <a href="ArticleServlet?method=indexGetList&num=1">新闻资讯</a></div>
+    <div class="right_main">
+      <div class="news_con">
+       <c:forEach items="${page.list}" var="a">
+        <dl class="news_dl">
+          <dt class="png"><img src="${pageContext.request.contextPath}/${a.img }"></dt>
+          <dd><span><a href="ArticleServlet?method=findArticleById&id=${a.id}" class="dt_1">${a.title }</a></span>${a.content } </dd>
+        </dl>
+         </c:forEach>
+        <div class="news_jz02"> </div>
+        <div class="clear"> </div>
+        <div class="Page clearfix"><jsp:include page="pageFile.jsp"></jsp:include></div>
+      </div>
+    </div>
+   </div>
+  <!--左侧-->
+ <jsp:include page="leftMenu.jsp"></jsp:include>
+</div>
+<!--Content:End-->
+	 	<jsp:include page="footer.jsp"></jsp:include>
   </body>
 </html>

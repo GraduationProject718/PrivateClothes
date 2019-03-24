@@ -17,4 +17,10 @@ public class ClothesTypeDao {
 		return qr.query(sql, new BeanListHandler<ClothesType>(ClothesType.class));
 	}
 
+	public List<ClothesType> indexClothesType() throws Exception{
+		String sql = "select * from clothestype order by id asc";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<ClothesType>(ClothesType.class));
+	}
+
 }

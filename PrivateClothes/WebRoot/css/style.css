@@ -206,8 +206,8 @@ em { font-style:normal;}
 .xc_con .xc02 ul li span { display:block; height:25px; line-height:25px; overflow:hidden; text-align:center;}
 .xc_con .xc02 ul li span a { color:#000; font-family:"Microsoft YaHei"; font-size:14px;}
 /*新闻中心*/
-.dt_bg { margin-top:30px; border-top:solid 1px #bababb; padding:40px 0 35px;overflow:hidden;}
-.dt { width:850px;}
+.dt_bg {  padding:40px 0 35px;overflow:hidden;}
+.dt { width:1160px;}
 .dt_top { height:48px; line-height:48px; background:url(../images/dt_top.gif) repeat-x; }
 .dt_top span { float:right; display:block; }
 .dt_top span a { font-family:Arial; font-size:14px; color:#222; text-transform:uppercase;}
@@ -226,7 +226,7 @@ em { font-style:normal;}
 .dt_con dl dd span a { color:#f2b30b;}
 
 .dt_list { padding-top:10px;}
-.dt_list ul li { height:35px; line-height:35px; padding: 0 12px;  overflow:hidden; background:url(../images/ico03.gif) no-repeat left 13px; border-bottom:dashed 1px #dddcdc; width:400px; float:left;}
+.dt_list ul li { height:35px; line-height:35px; padding: 0 12px;  overflow:hidden; background:url(../images/ico03.gif) no-repeat left 13px; border-bottom:dashed 1px #dddcdc; width:550px; float:left;}
 .dt_list ul li span { float:right; color:#b5b5b5;}
 
 /*常见问题解答*/
@@ -313,7 +313,7 @@ dl.news_dl .dt_2 { float: right;font-family: "宋体"; font-size: 12px; padding:
 dl.news_dl .dt_3 {  font-size: 12px;}
 dl.news_dl .dt_3 a {color: #13533b;text-decoration: underline;}
 dl.news_dl dd {font-size: 12px;height: 68px;margin-bottom: 10px; overflow: hidden;padding-left: 10px;}
-dl.news_dl dt { background: url("../images/dateBg.png") no-repeat scroll 10px center transparent; float: left; height: 64px;margin-bottom: 3px; width: 80px;}
+dl.news_dl dt {  float: left; height: 64px;margin-bottom: 3px; width: 80px;}
 dl.news_dl .dt_1 { background: url("../images/ico10.gif") no-repeat scroll 0 9px rgba(0, 0, 0, 0);display: block; font-family: Tahoma; font-size: 16px;font-weight: bold; height: 24px;line-height: 24px;padding-left: 10px;text-decoration: none;overflow:hidden;}
 dl.news_dl .dt_2 {color: #fff;display: block; font-family: Verdana;font-size: 14px; padding-left: 12px; padding-top: 18px; width: 54px;}
 dl.news_dl .dt_3 { color: #464646; display: block;font: 18px/18px "Verdana";padding-left: 10px;}

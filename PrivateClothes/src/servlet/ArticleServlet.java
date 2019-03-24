@@ -99,6 +99,12 @@ public class ArticleServlet extends BaseServlet {
 		request.setAttribute("article", article);
 		return "/admin/article/edit.jsp";
 	}
+	public String findArticleById(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id = request.getParameter("id");
+		Article article = articleService.getArticleById(id);
+		request.setAttribute("article", article);
+		return "aboutNews.jsp";
+	}
 	
 	public String editArticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");

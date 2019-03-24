@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,21 +12,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="t_bg">
   <div class="header">
     <div class="h_top"> <i>欢迎访问服装私人定制网！</i>
-      <span><a href="#" onclick="AddFavorite(window.location,document.title)">登录</a>&nbsp;&nbsp; |&nbsp;&nbsp; <a href="#" onclick="SetHome(this,window.location)">注册</a></span>
+      <c:if test="${empty user}">
+      	<span><a href="login.jsp">登录</a>&nbsp;&nbsp; |&nbsp;&nbsp; <a href="register.jsp">注册</a></span>
+      </c:if>
+      <c:if test="${not empty user}">
+      	<span>欢迎<a href="user.jsp">${user.name}</a></span>
+      </c:if>
     </div>
     <div class="h_con">
       <h1><img src="images/logo.png" alt="" width="400" height="66"/></h1>
       <div class="h_bt fl">专注某某服装生产12年<span>注重品质 提高服务 一站式服务</span></div>
-      <div class="h_pho fr">个人中心<span>888-888-8888</span></div>
+      <c:if test="${not empty user}">
+      	<div><a href="user.jsp"><img style="width:120px;height:100px;float:right;" src="${pageContext.request.contextPath}/${user.img}"></a></div>
+      </c:if>
     </div>
+    
     <div class="h_nav">
       <ul>
-        <li><a href="default.html" ><span>网站首页</span></a></li>
-        <li><a href="about.html" ><span>男士服装</span></a></li>
-        <li><a href="product.html" ><span>女士服装</span></a></li>
-        <li><a href="news.html" ><span>私人定制</span></a></li>
-        <li><a href="product.html" ><span>新闻资讯</span></a></li>        
-        <li><a href="about.html" ><span>联系我们</span></a></li>
+        <li><a href="IndexServlet" ><span>网站首页</span></a></li>
+        <li><a href="ClothesServlet?method=manClothes&num=1" ><span>男士定制</span></a></li>
+        <li><a href="ClothesServlet?method=womanClothes&num=1" ><span>女士定制</span></a></li>
+        <li><a href="product.html" ><span>团体定制</span></a></li>
+        <li><a href="ArticleServlet?method=indexGetList&num=1"><span>新闻资讯</span></a></li>        
       </ul>
     </div>
   </div>

@@ -58,6 +58,14 @@ public class ClothesServlet extends BaseServlet {
 		request.setAttribute("page", pm);
 		return "/clothes.jsp";
 	}
+	public String findClothesByTypeId(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum = Integer.parseInt(request.getParameter("num"));
+		String typeId = request.getParameter("typeId");
+		PageModel pm = clothesService.findClothesByTypeId(typeId,curNum);
+		request.setAttribute("page", pm);
+		return "/clothes.jsp";
+	}
+	
 	public String delClothes(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 		clothesService.delClothes(id);
@@ -85,6 +93,28 @@ public class ClothesServlet extends BaseServlet {
 		
 		return "/admin/clothes/editClothes.jsp";
 	}
+	
+	public String findClothesById(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id = request.getParameter("id");
+		Clothes clothes = clothesService.editClothesByIdUI(id);
+		request.setAttribute("clothes", clothes);
+		
+		ClothesTypeService clothesTypeService = new ClothesTypeService();
+		List<ClothesType> clothesTypeList = clothesTypeService.findAllType();
+		request.setAttribute("clothesTypeList", clothesTypeList);
+		
+		MaterialService materialServcie = new MaterialService();
+		List<Material> materialList = materialServcie.findAllMaterial();
+		request.setAttribute("materialList", materialList);
+		
+		ClothesSizeService clothesSizeService = new ClothesSizeService();
+		List<ClothesSize> clothesSizeList = clothesSizeService.findAllSize();
+		request.setAttribute("clothesSizeList", clothesSizeList);
+		
+		return "aboutClothes.jsp";
+	}
+	
+	
 	public String addClothesUI(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ClothesTypeService clothesTypeService = new ClothesTypeService();
 		List<ClothesType> clothesTypeList = clothesTypeService.findAllType();

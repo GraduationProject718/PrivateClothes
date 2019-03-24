@@ -30,7 +30,7 @@ public class ClothesService {
 	}
 	public PageModel manClothes(int curNum) throws Exception{
 		int totalRecords =clothesDao.findManClothesTotalRecords();
-		PageModel pm = new PageModel(curNum,totalRecords,5);
+		PageModel pm = new PageModel(curNum,totalRecords,8);
 		List<Clothes> list = clothesDao.manClothes(pm.getStartIndex(),pm.getPageSize());
 		pm.setList(list);
 		pm.setUrl("ClothesServlet?method=manClothes");
@@ -38,10 +38,21 @@ public class ClothesService {
 	}
 	public PageModel womanClothes(int curNum) throws Exception{
 		int totalRecords =clothesDao.findWomanClothesTotalRecords();
-		PageModel pm = new PageModel(curNum,totalRecords,5);
+		PageModel pm = new PageModel(curNum,totalRecords,8);
 		List<Clothes> list = clothesDao.womanClothes(pm.getStartIndex(),pm.getPageSize());
 		pm.setList(list);
 		pm.setUrl("ClothesServlet?method=womanClothes");
+		return pm;
+	}
+	public List<Clothes> indexClothes(String id) throws Exception{
+		return clothesDao.indexClothes(id);
+	}
+	public PageModel findClothesByTypeId(String typeId, int curNum)  throws Exception{
+		int totalRecords =clothesDao.findClothesTotalRecordsByTypeId(typeId);
+		PageModel pm = new PageModel(curNum,totalRecords,8);
+		List<Clothes> list = clothesDao.findClothesByTypeId(typeId,pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("ClothesServlet?method=findClothesByTypeId&typeId="+typeId);
 		return pm;
 	}
 

@@ -14,8 +14,13 @@ public class UserServlet extends BaseServlet {
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
 		User user = userService.login(account, password);
+		if(user == null) {
+			request.setAttribute("msg", "账号或密码有误");
+			return "login.jsp";
+		}
 		request.getSession().setAttribute("user", user);
-		return "index.jsp";
+		response.sendRedirect("IndexServlet");
+		return null;
 		
 	}
 
@@ -23,20 +28,17 @@ public class UserServlet extends BaseServlet {
 		String account = request.getParameter("account");
 		String password= request.getParameter("password");
 		String name = request.getParameter("name");
-		String info= request.getParameter("info");
-		String gender= request.getParameter("gender");
 		String birthday = request.getParameter("birthday");
-		String address= request.getParameter("address");
 		String phone= request.getParameter("phone");
 		User user = new User();
 		user.setId(UUIDUtils.getId());
 		user.setAccount(account);
 		user.setPassowrd(password);
 		user.setName(name);
-		user.setInfo(info);
-		user.setGender(gender);
+		user.setInfo("");
+		user.setGender("男");
 		user.setBirthday(birthday);
-		user.setAddress(address);
+		user.setAddress("");
 		user.setPhone(phone);
 		user.setImg("images/contac.jpg");
 		userService.register(user);

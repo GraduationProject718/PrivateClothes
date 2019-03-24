@@ -79,4 +79,23 @@ public class ClothesDao {
 
 	}
 
+	public List<Clothes> indexClothes(String id) throws Exception{
+		String sql = "select * from clothes where clothesTypeId=? order by date desc limit 0,9";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Clothes>(Clothes.class),id);
+	}
+
+	public int findClothesTotalRecordsByTypeId(String typeId) throws Exception{
+		String sql = "select count(*) from clothes where clothesTypeId=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler(),typeId);
+		return num.intValue();
+	}
+
+	public List<Clothes> findClothesByTypeId(String typeId, int startIndex, int pageSize) throws Exception{
+		String sql = "select * from clothes where clothesTypeId=? order by date desc limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Clothes>(Clothes.class),typeId,startIndex,pageSize);
+	}
+
 }
