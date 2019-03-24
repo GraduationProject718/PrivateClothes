@@ -127,18 +127,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="tabbedPanels">
     	<ul class="tabs">
         	<li><a href="javascript:void(0)" onclick="document.getElementById('panel01').scrollIntoView();"  class="active">商品详情</a></li>
-            <li><a href="javascript:void(0)" onclick="document.getElementById('panel02').scrollIntoView();" >累计评价</a></li>
+            <li><a href="javascript:void(0)" onclick="document.getElementById('panel02').scrollIntoView();" >服装评价</a></li>
         </ul>
         
      <div class="panelContainer">
        	<div class="panel" id="panel01">
-        	<p class="sell">商品描述</p>
+        	<p class="sell">服装描述</p>
            ${clothes.info }
         	<div class="clear"></div>
         </div>
         <br />
         <div class="panel" id="panel02">
-        	<p class="sell">商品评价</p>
+        	<p class="sell">服装评价</p>
         	<img src="images/shopdetail/detail101.png">
             <p class="judge">全部评价(20)<span>晒图(13)</span></p>
             

@@ -21,4 +21,28 @@ public class UserDao {
 		qr.update(sql,params);
 	}
 
+	public void userImg(User user) throws Exception{
+		String sql = "update user set img=? where id=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		qr.update(sql,user.getImg(),user.getId());
+	}
+
+	public User findUserById(String id) throws Exception{
+		String sql = "select * from user where id=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanHandler<User>(User.class),id);
+	}
+
+	public void userData(User user) throws Exception{
+		String sql = "update user set name=?, info=?, gender=?, birthday=?, address=?, phone=? where id=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params = {user.getName(),user.getInfo(),user.getGender(),user.getBirthday(),user.getAddress(),user.getPhone(),user.getId()};
+		qr.update(sql,params);
+	}
+
+	public void userPassword(String id, String newPassword)throws Exception{
+		String sql = "update user set password=? where id=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		qr.update(sql,newPassword,id);
+	}
 }

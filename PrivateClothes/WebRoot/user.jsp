@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,11 +18,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="css/user.css">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">	<link rel="stylesheet" href="css/user.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="layui/css/layui.css" />
+	<script src="layui/layui.js"></script>
   </head>
   
   <body>
@@ -45,101 +48,220 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 			<div class="profile-card-inf">
 				<div class="profile-card-inf__item">
-					<div class="profile-card-inf__title">1598</div>
-					<div class="profile-card-inf__txt">Followers</div>
+					<div class="profile-card-inf__title">${user.gender}</div>
+					<div class="profile-card-inf__txt">性别</div>
 				</div>
 			
 				<div class="profile-card-inf__item">
-					<div class="profile-card-inf__title">65</div>
-					<div class="profile-card-inf__txt">Following</div>
+					<div class="profile-card-inf__title">${user.birthday }</div>
+					<div class="profile-card-inf__txt">生日</div>
 				</div>
 			
 				<div class="profile-card-inf__item">
-					<div class="profile-card-inf__title">123</div>
-					<div class="profile-card-inf__txt">Articles</div>
+					<div class="profile-card-inf__title">${user.phone }</div>
+					<div class="profile-card-inf__txt">电话号码</div>
 				</div>
 			
-				<div class="profile-card-inf__item">
-					<div class="profile-card-inf__title">85</div>
-					<div class="profile-card-inf__txt">Works</div>
-				</div>
 			</div>
-		
 			<div class="profile-card-social">
-				<a href="#" class="profile-card-social__item facebook">
+				<a href="javascript:void(0);" data-toggle="modal" data-target="#UserPassword" class="profile-card-social__item link">
 					<span class="icon-font">
-						<svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
-					</span>
-				</a>
-			
-				<a href="#" class="profile-card-social__item twitter">
-					<span class="icon-font">
-						<svg class="icon"><use xlink:href="#icon-twitter"></use></svg>
-					</span>
-				</a>
-			
-				<a href="#" class="profile-card-social__item instagram">
-					<span class="icon-font">
-						<svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
-					</span>
-				</a>
-			
-				<a href="#" class="profile-card-social__item behance">
-					<span class="icon-font">
-						<svg class="icon"><use xlink:href="#icon-behance"></use></svg>
+						密码
 					</span>
 				</a>
 				
-				<a href="#" class="profile-card-social__item github">
+				<a href="javascript:void(0);" data-toggle="modal" data-target="#UserData" class="profile-card-social__item facebook">
 					<span class="icon-font">
-						<svg class="icon"><use xlink:href="#icon-github"></use></svg>
+						资料
 					</span>
 				</a>
-				
-				<a href="#" class="profile-card-social__item codepen">
-					<span class="icon-font">
-						<svg class="icon"><use xlink:href="#icon-codepen"></use></svg>
+			
+				<a href="javascript:void(0);" data-toggle="modal" data-target="#UserImg" class="profile-card-social__item twitter" >
+					<span class="icon-font" >
+						头像
 					</span>
 				</a>
-				
-				<a href="#" class="profile-card-social__item link">
+			
+				<a href="UserServlet?method=exit" class="profile-card-social__item instagram">
 					<span class="icon-font">
-						<svg class="icon"><use xlink:href="#icon-link"></use></svg>
+						退出
 					</span>
 				</a>
 			
 			</div>
 		
 			<div class="profile-card-ctr">
-				<button class="profile-card__button button--blue js-message-btn">购物车</button>
+				<button class="profile-card__button button--blue">购物车</button>
 				<button class="profile-card__button button--orange">我的订单</button>
 			</div>
 		</div>
-	
-		<div class="profile-card-message js-message">
-			<form class="profile-card-form">
-				<div class="profile-card-form__container">
-					<textarea placeholder="Say something..."></textarea>
-				</div>
-			
-				<div class="profile-card-form__bottom">
-					<button class="profile-card__button button--blue js-message-close">
-					Send
-					</button>
-					
-					<button class="profile-card__button button--gray js-message-close">
-					Cancel
-					</button>
-				</div>
-			</form>
-		
-			<div class="profile-card__overlay js-message-close"></div>
-		</div>
-	
 	</div>
-
 </div>
 
+<!-- 更换密码 -->
+<form class="layui-form" action="UserServlet?method=userPassword" method="post">
+<div class="modal fade" id="UserPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					更换密码
+				</h4>
+			</div>
+			<div class="modal-body">
+			
+				<div class="layui-form-item">
+					<label class="layui-form-label">旧密码：</label>
+						<div class="layui-input-block">
+						<input type="password" name="password" id="password" required  lay-verify="required" placeholder="请输入旧密码" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">新密码：</label>
+						<div class="layui-input-block">
+						<input  type="password" name="newPassword" id="newPassword" required  lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<input type="hidden" name="id" id="id" value="${user.id }" />
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="submit" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+</form>
+<!-- 更换头像 -->
+<form action="UserServlet?method=userImg" method="post" enctype="multipart/form-data">
+<div class="modal fade" id="UserImg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					更换头像
+				</h4>
+			</div>
+			<div class="modal-body">
+				<input type="file" name="img" id="img" />
+				<input type="hidden" name="id" id="id" value="${user.id }" />
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="submit" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+</form>
+<!-- 修改个人信息 -->
+<form class="layui-form" action="UserServlet?method=userData" method="post" >
+<div class="modal fade" id="UserData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					修改个人资料
+				</h4>
+			</div>
+			<div class="modal-body">
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">姓名</label>
+					<div class="layui-input-block">
+					<input value="${user.name }" type="text" name="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">个性签名</label>
+					<div class="layui-input-block">
+					<input value="${user.info }" type="text" name="info" required  lay-verify="required" placeholder="请输入个性签名" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+				
+			 <div class="layui-form-item">
+			    <label class="layui-form-label">性别</label>
+			    <div class="layui-input-block">
+			    	<c:if test="${user.gender == '男' }">
+						 <input type="radio" name="gender" value="男" title="男" checked >
+			      		<input type="radio" name="gender" value="女" title="女"  >
+			    	</c:if>
+			     	<c:if test="${user.gender == '女' }">
+						 <input type="radio" name="gender" value="男" title="男"  >
+			      		<input type="radio" name="gender" value="女" title="女" checked >
+			    	</c:if>
+			    </div>
+			  </div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">生日</label>
+					<div class="layui-input-block">
+					<input value="${user.birthday }" type="text" name="birthday" class="layui-input" id="birthday" required  lay-verify="required" placeholder="请选择出生日期" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">地址</label>
+					<div class="layui-input-block">
+					<input value="${user.address }" type="text" name="address" required  lay-verify="required" placeholder="请输入地址" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">电话号码</label>
+					<div class="layui-input-block">
+					<input value="${user.phone }" type="text" name="phone" required  lay-verify="required" placeholder="请输入电话号码" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+				
+			<input type="hidden" name="id" id="id" value="${user.id }" />
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="submit" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+</form>
+<script src="layui/layui.js"></script>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+  
+  laydate.render({
+    elem: '#birthday' 
+  });
+});
+</script>
+
+<script>
+layui.use('form', function(){
+  var form = layui.form;
+  
+});
+</script>
 <svg hidden="hidden">
   <defs>
     <symbol id="icon-codepen" viewBox="0 0 32 32">
@@ -159,6 +281,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <path d="M12.128 26.4c0.032 0.128-0.096 0.256-0.288 0.288s-0.352-0.032-0.384-0.16c-0.032-0.128 0.096-0.256 0.288-0.288s0.352 0.032 0.384 0.16v0z"></path>
     </symbol>
 
+	
+
     <symbol id="icon-location" viewBox="0 0 32 32">
       <title>location</title>
       <path d="M16 31.68c-0.352 0-0.672-0.064-1.024-0.16-0.8-0.256-1.44-0.832-1.824-1.6l-6.784-13.632c-1.664-3.36-1.568-7.328 0.32-10.592 1.856-3.2 4.992-5.152 8.608-5.376h1.376c3.648 0.224 6.752 2.176 8.608 5.376 1.888 3.264 2.016 7.232 0.352 10.592l-6.816 13.664c-0.288 0.608-0.8 1.12-1.408 1.408-0.448 0.224-0.928 0.32-1.408 0.32zM15.392 2.368c-2.88 0.192-5.408 1.76-6.912 4.352-1.536 2.688-1.632 5.92-0.288 8.672l6.816 13.632c0.128 0.256 0.352 0.448 0.64 0.544s0.576 0.064 0.832-0.064c0.224-0.096 0.384-0.288 0.48-0.48l6.816-13.664c1.376-2.752 1.248-5.984-0.288-8.672-1.472-2.56-4-4.128-6.88-4.32h-1.216zM16 17.888c-3.264 0-5.92-2.656-5.92-5.92 0-3.232 2.656-5.888 5.92-5.888s5.92 2.656 5.92 5.92c0 3.264-2.656 5.888-5.92 5.888zM16 8.128c-2.144 0-3.872 1.728-3.872 3.872s1.728 3.872 3.872 3.872 3.872-1.728 3.872-3.872c0-2.144-1.76-3.872-3.872-3.872z"></path>
@@ -172,14 +296,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <symbol id="icon-instagram" viewBox="0 0 32 32">
       <title>instagram</title>
-      <path d="M16 2.881c4.275 0 4.781 0.019 6.462 0.094 1.563 0.069 2.406 0.331 2.969 0.55 0.744 0.288 1.281 0.638 1.837 1.194 0.563 0.563 0.906 1.094 1.2 1.838 0.219 0.563 0.481 1.412 0.55 2.969 0.075 1.688 0.094 2.194 0.094 6.463s-0.019 4.781-0.094 6.463c-0.069 1.563-0.331 2.406-0.55 2.969-0.288 0.744-0.637 1.281-1.194 1.837-0.563 0.563-1.094 0.906-1.837 1.2-0.563 0.219-1.413 0.481-2.969 0.55-1.688 0.075-2.194 0.094-6.463 0.094s-4.781-0.019-6.463-0.094c-1.563-0.069-2.406-0.331-2.969-0.55-0.744-0.288-1.281-0.637-1.838-1.194-0.563-0.563-0.906-1.094-1.2-1.837-0.219-0.563-0.481-1.413-0.55-2.969-0.075-1.688-0.094-2.194-0.094-6.463s0.019-4.781 0.094-6.463c0.069-1.563 0.331-2.406 0.55-2.969 0.288-0.744 0.638-1.281 1.194-1.838 0.563-0.563 1.094-0.906 1.838-1.2 0.563-0.219 1.412-0.481 2.969-0.55 1.681-0.075 2.188-0.094 6.463-0.094zM16 0c-4.344 0-4.887 0.019-6.594 0.094-1.7 0.075-2.869 0.35-3.881 0.744-1.056 0.412-1.95 0.956-2.837 1.85-0.894 0.888-1.438 1.781-1.85 2.831-0.394 1.019-0.669 2.181-0.744 3.881-0.075 1.713-0.094 2.256-0.094 6.6s0.019 4.887 0.094 6.594c0.075 1.7 0.35 2.869 0.744 3.881 0.413 1.056 0.956 1.95 1.85 2.837 0.887 0.887 1.781 1.438 2.831 1.844 1.019 0.394 2.181 0.669 3.881 0.744 1.706 0.075 2.25 0.094 6.594 0.094s4.888-0.019 6.594-0.094c1.7-0.075 2.869-0.35 3.881-0.744 1.050-0.406 1.944-0.956 2.831-1.844s1.438-1.781 1.844-2.831c0.394-1.019 0.669-2.181 0.744-3.881 0.075-1.706 0.094-2.25 0.094-6.594s-0.019-4.887-0.094-6.594c-0.075-1.7-0.35-2.869-0.744-3.881-0.394-1.063-0.938-1.956-1.831-2.844-0.887-0.887-1.781-1.438-2.831-1.844-1.019-0.394-2.181-0.669-3.881-0.744-1.712-0.081-2.256-0.1-6.6-0.1v0z"></path>
-      <path d="M16 7.781c-4.537 0-8.219 3.681-8.219 8.219s3.681 8.219 8.219 8.219 8.219-3.681 8.219-8.219c0-4.537-3.681-8.219-8.219-8.219zM16 21.331c-2.944 0-5.331-2.387-5.331-5.331s2.387-5.331 5.331-5.331c2.944 0 5.331 2.387 5.331 5.331s-2.387 5.331-5.331 5.331z"></path>
-      <path d="M26.462 7.456c0 1.060-0.859 1.919-1.919 1.919s-1.919-0.859-1.919-1.919c0-1.060 0.859-1.919 1.919-1.919s1.919 0.859 1.919 1.919z"></path>
+      <path d="M512.282433 957.937398c-247.529583 0-448.190719-200.661136-448.190719-448.185602 0-191.062524 119.757524-353.747743 288.115953-418.226267l0 69.339228c-132.148739 60.736293-224.088708 193.907315-224.088708 348.887039 0 212.150818 172.011632 384.16245 384.163473 384.16245 212.152864 0 384.158357-172.010609 384.158357-384.16245 0-154.979724-91.944062-288.150746-224.093824-348.917738l0-69.308529c168.359452 64.478524 288.115953 227.16886 288.115953 418.226267C960.468035 757.276263 759.807922 957.937398 512.282433 957.937398L512.282433 957.937398 512.282433 957.937398zM480.268298 61.561078l64.022129 0 0 449.339892-64.022129 0L480.268298 61.561078 480.268298 61.561078 480.268298 61.561078zM480.268298 61.561078"></path>
     </symbol>
 
     <symbol id="icon-twitter" viewBox="0 0 32 32">
       <title>twitter</title>
-      <path d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
+      <path d="M3,17.25V21h3.75L17.811,9.94l-3.75-3.75L3,17.25z M20.71,7.04c0.39-0.39,0.39-1.02,0-1.41l-2.34-2.34
+	c-0.39-0.39-1.021-0.39-1.41,0l-1.83,1.83l3.75,3.75L20.71,7.04z"/>
     </symbol>
 
     <symbol id="icon-behance" viewBox="0 0 32 32">
@@ -196,12 +319,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </symbol>
   </defs>
 </svg>
-
-
-
 <script  src="js/user.js"></script>
-  
-  
-  <jsp:include page="footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
   </body>
 </html>

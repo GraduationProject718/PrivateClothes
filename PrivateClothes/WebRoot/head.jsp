@@ -21,9 +21,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div class="h_con">
       <h1><img src="images/logo.png" alt="" width="400" height="66"/></h1>
-      <div class="h_bt fl">专注某某服装生产12年<span>注重品质 提高服务 一站式服务</span></div>
+     
       <c:if test="${not empty user}">
-      	<div><a href="user.jsp"><img style="width:120px;height:100px;float:right;" src="${pageContext.request.contextPath}/${user.img}"></a></div>
+      	<div><a href="user.jsp"><img style="border-radius: 50%; width:120px;height:100px;float:right;" src="${pageContext.request.contextPath}/${user.img}"></a></div>
       </c:if>
     </div>
     

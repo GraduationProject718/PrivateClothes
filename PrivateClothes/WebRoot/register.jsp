@@ -68,8 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_btn">
-								<!-- <button type="button">注册</button> -->
-								<input type="submit" value="注册" />
+								<button type="submit">注册</button>
 							</div>
 							<div class="form_reg_btn">
 								<span>已有帐号？</span><a href="login.jsp">马上登录</a>
