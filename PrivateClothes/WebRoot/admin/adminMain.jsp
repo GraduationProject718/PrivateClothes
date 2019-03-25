@@ -44,6 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<div class="all1">
 	  <h4 style="color:#fff">用户管理</h4>
+	  <iframe style="border:0; background:rgba(255,255,255,0.5);" scrolling="auto" src="${pageContext.request.contextPath}/UserServlet?method=findAllByAdmin&num=1" width="1000" height="544"></iframe>
 	</div>
 	
 	<div class="all2">
@@ -57,6 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<div class="all4" id="all4">
 		<h4 style="color:#fff">评价管理</h4>
+		<iframe style="border:0; background:rgba(255,255,255,0.5);" scrolling="auto" src="${pageContext.request.contextPath}/PingJiaServlet?method=findAllByAdmin&num=1" width="1000" height="544"></iframe>
 	</div>
 
 	<!-- <div class="all5">

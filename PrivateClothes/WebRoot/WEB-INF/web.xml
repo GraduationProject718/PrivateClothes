@@ -68,6 +68,11 @@
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>servlet.IndexServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>PingJiaServlet</servlet-name>
+    <servlet-class>servlet.PingJiaServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>ClothesSizeServlet</servlet-name>
@@ -76,6 +81,10 @@
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/IndexServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PingJiaServlet</servlet-name>
+    <url-pattern>/PingJiaServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>

@@ -27,10 +27,14 @@ import bean.ClothesSize;
 import bean.ClothesType;
 import bean.Material;
 import bean.PageModel;
+import bean.PingJia;
+import bean.User;
 import service.ClothesService;
 import service.ClothesSizeService;
 import service.ClothesTypeService;
 import service.MaterialService;
+import service.PingJiaService;
+import service.UserService;
 import utils.UUIDUtils;
 import utils.UploadUtils;
 
@@ -111,6 +115,13 @@ public class ClothesServlet extends BaseServlet {
 		List<ClothesSize> clothesSizeList = clothesSizeService.findAllSize();
 		request.setAttribute("clothesSizeList", clothesSizeList);
 		
+		PingJiaService pingjiaService = new PingJiaService();
+		List<PingJia> pingjia = pingjiaService.findIndexByCId(id);
+		request.setAttribute("pingjia", pingjia);
+		
+		UserService userService = new UserService();
+		List<User> pjuser = userService.allUser();
+		request.setAttribute("pjuser", pjuser);
 		return "aboutClothes.jsp";
 	}
 	

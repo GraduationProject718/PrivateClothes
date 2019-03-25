@@ -141,35 +141,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<p class="sell">服装评价</p>
         	<img src="images/shopdetail/detail101.png">
             <p class="judge">全部评价(20)<span>晒图(13)</span></p>
+            <form action="PingJiaServlet?method=add" method="post">
+            	<textarea name="content" id="content" rows="10" cols="100"></textarea>
+            	<input type="submit" value="评价" />
+            	<input type="hidden" name="uId" id="uId" value="${user.id }">
+            	<input type="hidden" name="cId" id="cId" value="${clothes.id }">            	
+            </form>
             
-            <div class="judge01">
-            <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-            <div class="write">
-            <p class="idname">落***1</p>
-            <p>杯子很可爱！就是有两三个杯子后面的小图案有一丢丢斜下来，不过没多大关系，其他的还好。有一点真的特别特别好的就是😂包裹的非常非常非常严实，简直就是里三层外三层！杯子完好无损，赠送的刷子也包装的很好😂让我第一眼以为那是一个棉花糖hhh</p>
-            <p class="which">颜色:创意胡子</p> 
-            <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-            <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-            <img src="images/shopdetail/detail105.jpg" width="40px" height="40px">
-
-            </div>
-            </div>
-            
-            
-            <div class="judge01">
-            <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-            <div class="write">
-            <p class="idname">里***2</p>
-            <p>不错，很可爱包装很好，赶快下手吧</p>
-            <p class="which">颜色:四色小猫</p> 
-            <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-            <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-            </div>
-            </div>
-
-              <div class="clear"></div>
-        </div>
-    
+           <%--  <c:forEach items="${pingjia}" var="pj">
+            	<c:forEach items="${pjuser}" var="pju">
+            		<c:if test="${pj.uId == pju.id }">
+            			<div class="judge01">
+            			<div style="padding:5px;height:150px;"><img style="width:60px;height:60px;border-radius: 50%; " src="${pageContext.request.contextPath }/${pju.img}">	</div>
+           				<div class="write"><p class="idname"><b>${pju.name }</b></p>
+           				 <p>${pj.content}</p>
+			            <p class="which">${pj.date}</p> 
+		    	        </div>
+		    	        </div>
+           			</c:if>
+           		</c:forEach>
+           		</div>
+           	</c:forEach> --%>
+	       
+	       
+            			
+		<c:forEach items="${pingjia}" var="pj">
+		<c:forEach items="${pjuser}" var="pju">
+		<c:if test="${pj.uId == pju.id }">
+			<div class="judge01">
+			<div style="padding:5px;height:150px;"><img style="width:60px;height:60px;border-radius: 50%; " src="${pageContext.request.contextPath }/${pju.img}"></div>
+			<div class="write"><p class="idname"><b>${pju.name }</b></p><p>${pj.content}</p><p class="which">${pj.date}</p></div>
+			</div>
+		</c:if>
+		</c:forEach>
+		</c:forEach> 			
+           
+    </div>
     </div>
 
 </div>

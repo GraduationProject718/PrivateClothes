@@ -18,6 +18,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
 
 import bean.Article;
+import bean.PageModel;
 import bean.User;
 import service.UserService;
 import utils.UUIDUtils;
@@ -27,6 +28,19 @@ public class UserServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
 	UserService userService = new UserService();
 	
+	
+	public String findAllByAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum = Integer.parseInt(request.getParameter("num"));
+		PageModel pm = userService.findAllByAdmin(curNum);
+		request.setAttribute("page", pm);
+		return "/admin/user/list.jsp";
+	}
+	public String del(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id = request.getParameter("id");
+		userService.del(id);
+		response.sendRedirect("UserServlet?method=findAllByAdmin&num=1");
+		return null;
+	}
 	public String exit(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.getSession().invalidate();
 		response.sendRedirect("IndexServlet");
