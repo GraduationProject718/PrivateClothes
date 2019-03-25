@@ -37,11 +37,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						${msg }
 						<form action="UserServlet?method=login" method="post">
 							<div class="form_text_ipt">
-								<input name="account" type="text" placeholder="账号">
+								<input name="account" type="text" placeholder="账号" >
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_text_ipt">
-								<input name="password" type="password" placeholder="密码">
+								<input name="password" type="password" placeholder="密码" >
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_check_ipt">
