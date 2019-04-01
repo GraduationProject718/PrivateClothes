@@ -28,8 +28,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <jsp:include page="head.jsp"></jsp:include>
+  <br />
 <!--搜索-->
-<div class="s_bg">
+<!-- <div class="s_bg">
   <div class="h_ser">
     <p><b>热门关键词：</b><a href="">精品服装</a><a href="">精品服装哪家好</a><a href="">精品服装定制</a></p>
     <div class="s_inp fr">
@@ -37,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <input type="image" src="images/s_ss.gif" class="fl" id="sousuo"/>
     </div>
   </div>
-</div>
+</div> -->
 <!--banner-->
 <div class="banner">
 	<ul class="slides">
@@ -57,7 +58,7 @@ $(function(){
 
 <div class="content">
   <div class="rx" id="prog">
-    <div class="zx_top"><a href=""><span>PRODUCTS</span>产品展示</a></div>
+    <div class="zx_top"><a href=""><span>PRODUCTS</span>服装展示</a></div>
     <div class="rx_nav">
       <ul last="nobor01">
       <c:forEach items="${clothesType}" varStatus="status" var="ct">
@@ -113,7 +114,7 @@ $(function(){
 					</dt>
 					<dd>
 						<h3><a href="ArticleServlet?method=findArticleById&id=${a.id}">${a.title }</a></h3>
-						<p>${a.content }</p>
+						<%-- <p>${a.content }</p> --%>
 						<span><a href="ArticleServlet?method=findArticleById&id=${a.id}">【查看更多】</a></span>
 					</dd>
 				</dl>

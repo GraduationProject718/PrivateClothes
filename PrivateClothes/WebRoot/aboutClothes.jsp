@@ -68,6 +68,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});	
 	</script>
 	
+	<style type="text/css">
+		.pingjia{
+			width: 100px;
+			height: 40px;
+			border-width: 0px;
+			border-radius: 3px;
+			background: #1E90FF;
+			cursor: pointer;
+			outline: none;
+			font-family: Microsoft YaHei;
+			color: white;
+			font-size: 17px;
+		}
+		.pingjia:hover{
+			background: #5599FF;
+		}
+		
+	</style>
   </head>
   
   <body>
@@ -139,11 +157,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <br />
         <div class="panel" id="panel02">
         	<p class="sell">服装评价</p>
-        	<img src="images/shopdetail/detail101.png">
-            <p class="judge">全部评价(20)<span>晒图(13)</span></p>
             <form action="PingJiaServlet?method=add" method="post">
             	<textarea name="content" id="content" rows="10" cols="100"></textarea>
-            	<input type="submit" value="评价" />
+            	
+            	<input type="submit" class="pingjia" value="评价" />
             	<input type="hidden" name="uId" id="uId" value="${user.id }">
             	<input type="hidden" name="cId" id="cId" value="${clothes.id }">            	
             </form>
