@@ -20,6 +20,7 @@ import org.apache.commons.io.IOUtils;
 import bean.Article;
 import bean.PageModel;
 import bean.User;
+import service.CartService;
 import service.UserService;
 import utils.UUIDUtils;
 import utils.UploadUtils;
@@ -27,7 +28,16 @@ import utils.UploadUtils;
 public class UserServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
 	UserService userService = new UserService();
-	
+	public String findCartById(HttpServletRequest request, HttpServletResponse response) throws Exception {
+/*		String uid = request.getParameter("uid");
+		int curNum = Integer.parseInt(request.getParameter("num"));
+		CartService cartService = new CartService();
+		PageModel pm = cartService.findCartById(uid,curNum);
+		request.setAttribute("page", pm);
+		
+		*/
+		return "cart.jsp";
+	}
 	
 	public String findAllByAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int curNum = Integer.parseInt(request.getParameter("num"));

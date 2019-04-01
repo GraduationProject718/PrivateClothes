@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        </c:if>
 	        </c:forEach>
         </p>
-        <p class="buy" ><a href="#" id="firstbuy">立即购买</a><a href="#">加入购物车</a></p>
+        <p class="buy" ><a href="CartServlet?method=add&cid=${clothes.id }&uid=${user.id}" id="firstbuy">立即购买</a><a href="#">加入购物车</a></p>
    		<div class="clear"></div>
         <br /><br />
         <p class="fuwu">服务承诺：</p><img style="margin-top:-30px;margin-left:80px;" src="images/fuwu.png" /><br /><br />

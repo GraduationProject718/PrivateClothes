@@ -25,6 +25,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="layui/css/layui.css" />
 	<script src="layui/layui.js"></script>
+	
+	<script type="text/javascript">
+		function pageToCart(uid){
+			location="UserServlet?method=findCartById&num=1&uid="+uid;
+		}
+	</script>
   </head>
   
   <body>
@@ -91,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		
 			<div class="profile-card-ctr">
-				<button class="profile-card__button button--blue">购物车</button>
+				<button onclick="pageToCart('${user.id }');" class="profile-card__button button--blue">购物车</button>
 				<button class="profile-card__button button--orange">我的订单</button>
 			</div>
 		</div>

@@ -72,6 +72,11 @@
     <servlet-name>PingJiaServlet</servlet-name>
     <servlet-class>servlet.PingJiaServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>servlet.CartServlet</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -85,6 +90,10 @@
   <servlet-mapping>
     <servlet-name>PingJiaServlet</servlet-name>
     <url-pattern>/PingJiaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/CartServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>
