@@ -132,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
      <div class="panelContainer">
        	<div class="panel" id="panel01">
-        	<p class="sell">服装描述</p>
+        	<p class="sell">详细信息</p>
            ${clothes.info }
         	<div class="clear"></div>
         </div>
