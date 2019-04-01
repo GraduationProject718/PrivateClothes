@@ -24,35 +24,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/NSW_Index.js"></script>
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="js/rollup.min.js"></script>
+	 <link rel="stylesheet" href="layui/css/layui.css" media="all">
   </head>
   
   <body>
   <jsp:include page="head.jsp"></jsp:include>
   <br />
-<!--搜索-->
-<!-- <div class="s_bg">
-  <div class="h_ser">
-    <p><b>热门关键词：</b><a href="">精品服装</a><a href="">精品服装哪家好</a><a href="">精品服装定制</a></p>
-    <div class="s_inp fr">
-      <input type="text" class="inp01" value="请输入关键字" id="seachkeywords"/>
-      <input type="image" src="images/s_ss.gif" class="fl" id="sousuo"/>
-    </div>
+<center>
+<div class="layui-carousel" id="test1">
+  <div carousel-item>
+    <div><img src="images/banner1.jpg"></div>
+    <div><img src="images/banner2.jpg"></div>
+    <div><img src="images/roll3.jpg"></div>
   </div>
-</div> -->
-<!--banner-->
-<div class="banner">
-	<ul class="slides">
-		<li style="background:url(images/banner1.jpg) 50% 0 no-repeat;"></li>
-		<li style="background:url(images/banner2.jpg) 50% 0 no-repeat;"></li>
-	</ul>
 </div>
-<script src="js/jquery.flexslider-min.js"></script>
+ </center>
+<script src="layui/layui.js"></script>
 <script>
-$(function(){
-    $('.banner').flexslider({
-        directionNav: true,
-        pauseOnAction: false
-    });
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '70%' //设置容器宽度
+    ,height:'50%'
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  });
 });
 </script>
 
