@@ -32,7 +32,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li><a href="IndexServlet" ><span>网站首页</span></a></li>
         <li><a href="ClothesServlet?method=manClothes&num=1" ><span>男士定制</span></a></li>
         <li><a href="ClothesServlet?method=womanClothes&num=1" ><span>女士定制</span></a></li>
-        <li><a href="product.html" ><span>团体定制</span></a></li>
         <li><a href="ArticleServlet?method=indexGetList&num=1"><span>新闻资讯</span></a></li>        
       </ul>
     </div>
